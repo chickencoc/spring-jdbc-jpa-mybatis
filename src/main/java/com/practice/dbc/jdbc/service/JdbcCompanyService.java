@@ -2,7 +2,6 @@ package com.practice.dbc.jdbc.service;
 
 import com.practice.dbc.common.domain.Company;
 import com.practice.dbc.common.dto.CompanyRequest;
-import com.practice.dbc.common.repository.CompanyRepository;
 import com.practice.dbc.common.service.CompanyService;
 import com.practice.dbc.jdbc.repository.JdbcCompanyRepository;
 import lombok.RequiredArgsConstructor;

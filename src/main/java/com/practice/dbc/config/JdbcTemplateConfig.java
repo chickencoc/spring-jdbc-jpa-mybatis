@@ -1,7 +1,6 @@
 package com.practice.dbc.config;
 
 import com.practice.dbc.jdbc.repository.JdbcCompanyRepository;
-import com.practice.dbc.common.repository.CompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

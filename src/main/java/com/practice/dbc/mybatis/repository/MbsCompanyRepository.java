@@ -1,6 +1,5 @@
 package com.practice.dbc.mybatis.repository;
 
-import com.practice.dbc.common.domain.Company;
 import com.practice.dbc.common.dto.CompanyRequest;
 import com.practice.dbc.common.repository.CompanyRepository;
 import org.apache.ibatis.annotations.Mapper;
