@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CompanyRepository {
-    Company save(Company company);
+    Object save(CompanyRequest companyRequest);
     Optional<Company> findByNo(Long no);
     Optional<Company> findByName(String name);
     List<Company> findAll();
     Integer countAll();
-    Company updateCompany(CompanyRequest companyRequest);
+    Object updateCompany(CompanyRequest companyRequest);
     Integer deleteByNo(Long no);
 }

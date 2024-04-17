@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface CompanyController {
     @PostMapping("/save")
-    ResponseEntity<Company> save(@RequestBody Company company);
+    ResponseEntity<Company> save(@RequestBody CompanyRequest companyRequest);
 
     @GetMapping("/find/id/{no}")
     ResponseEntity<Company> findByNo(@PathVariable Long no);
