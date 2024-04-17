@@ -19,8 +19,8 @@ public class JdbcCompanyController implements CompanyController {
     private final JdbcCompanyService jdbcCompanyService;
 
     @Override
-    public ResponseEntity<Company> save(Company company) {
-        return ResponseEntity.ok(jdbcCompanyService.save(company));
+    public ResponseEntity<Company> save(CompanyRequest companyRequest) {
+        return ResponseEntity.ok(jdbcCompanyService.save(companyRequest));
     }
 
     @Override

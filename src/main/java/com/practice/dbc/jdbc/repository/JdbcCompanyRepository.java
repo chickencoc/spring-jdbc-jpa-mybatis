@@ -27,18 +27,23 @@ public class JdbcCompanyRepository implements CompanyRepository {
     }
 
     @Override
-    public Company save(Company company) {
+    public Company save(CompanyRequest companyRequest) {
         SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
         jdbcInsert.withTableName("company")
                 .usingGeneratedKeyColumns("no");
 
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("name", company.getName());
-        parameters.put("city", company.getCity());
-        parameters.put("country", company.getCountry());
+        parameters.put("name", companyRequest.getName());
+        parameters.put("city", companyRequest.getCity());
+        parameters.put("country", companyRequest.getCountry());
 
         Number key = jdbcInsert.executeAndReturnKey(new MapSqlParameterSource(parameters));
+
+        Company company = new Company();
         company.setNo(key.longValue());
+        company.setName(companyRequest.getName());
+        company.setCity(companyRequest.getCity());
+        company.setCountry(companyRequest.getCountry());
 
         return company;
     }

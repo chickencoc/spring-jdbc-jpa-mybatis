@@ -4,6 +4,7 @@ import com.practice.dbc.common.domain.Company;
 import com.practice.dbc.common.dto.CompanyRequest;
 import com.practice.dbc.common.repository.CompanyRepository;
 import com.practice.dbc.common.service.CompanyService;
+import com.practice.dbc.jdbc.repository.JdbcCompanyRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +14,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class JdbcCompanyService implements CompanyService {
 
-    private final CompanyRepository jdbcCompanyRepository;
+    private final JdbcCompanyRepository jdbcCompanyRepository;
 
     @Override
-    public Company save(Company company) {
-        return jdbcCompanyRepository.save(company);
+    public Company save(CompanyRequest companyRequest) {
+        return jdbcCompanyRepository.save(companyRequest);
     }
 
     @Override

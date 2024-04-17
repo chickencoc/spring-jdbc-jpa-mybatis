@@ -15,7 +15,7 @@ public class JdbcTemplateConfig {
     private final DataSource dataSource;
 
     @Bean
-    public CompanyRepository jdbcCompanyRepository() {
+    public JdbcCompanyRepository jdbcCompanyRepository() {
         return new JdbcCompanyRepository(dataSource);
     }
 }
