@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- declare mapper DTD -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.practice.dbc.mybatis.repository.MbsCompanyRepository">
+
+    <select id="findByNo" resultType="Company" parameterType="long">
+        SELECT
+            NO
+            , NAME
+            , CITY
+            , COUNTRY
+        FROM COMPANY
+        WHERE NO = #{no}
+    </select>
+
+    <select id="findByName" resultType="Company" parameterType="string">
+        SELECT
+            NO
+            , NAME
+            , CITY
+            , COUNTRY
+        FROM COMPANY
+        WHERE NAME = #{name}
+    </select>
+
+    <select id="findAll" resultType="Company">
+        SELECT * FROM COMPANY
+    </select>
+
+    <select id="countAll" resultType="int">
+        SELECT COUNT(*) FROM COMPANY
+    </select>
+
+    <insert id="save" parameterType="CompanyRequest">
+        <selectKey resultType="long" keyProperty="no" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO COMPANY (
+            NAME
+            , CITY
+            , COUNTRY
+        )
+        VALUES (
+            #{name}
+            , #{city}
+            , #{country}
+        )
+    </insert>
+
+    <update id="updateCompany" parameterType="CompanyRequest">
+        UPDATE COMPANY
+        SET
+            NAME = #{name}
+            , CITY = #{city}
+            , COUNTRY = #{country}
+        WHERE NO = #{no}
+    </update>
+
+    <delete id="deleteByNo" parameterType="long">
+        DELETE FROM COMPANY
+        WHERE NO = #{no}
+    </delete>
+
+</mapper>
