@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="kr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>add</title>
+</head>
+<body>
+    <div>
+        <h1>Document</h1>
+        <form action="/list" th:object="${companyRequest}" method="post">
+            <div>
+                <label th:for="name">회사명</label>
+                <input th:field="*{name}" type="text" placeholder="회사명.." />
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">오류</p>
+            </div>
+            <div>
+                <label th:for="country">국가명</label>
+                <input th:field="*{country}" type="text" placeholder="국가명.." />
+                <p th:if="${#fields.hasErrors('country')}" th:errors="*{country}">오류</p>
+            </div>
+            <div>
+                <label th:for="city">도시명</label>
+                <input th:field="*{city}" type="text" placeholder="도시명.." />
+                <p th:if="${#fields.hasErrors('city')}" th:errors="*{city}">오류</p>
+            </div>
+            <button type="submit">제출</button>
+        </form>
+    </div>
+
+<!--    <div th:replace="footer :: ggggg"></div>-->
+</body>
+</html>
